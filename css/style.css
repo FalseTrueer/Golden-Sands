@@ -28,7 +28,7 @@ body {
   font-family: "Alegreya Sans SC";
   color: rgb(156, 146, 135);
   font-weight: 300;
-  font-size: calc(12px + 2 * ((100vw - 320px) / (1280 - 320)));
+  font-size: calc(12px + 12 * ((100vw - 320px) / (1920 - 320)));
 }
 
 .wrapper {
@@ -41,16 +41,12 @@ body {
 [class*=__container] {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 3.3125rem 0 3.3125rem;
+  padding: 0 3.3125rem;
 }
 
 .header {
   width: 100%;
-  min-height: 100vh;
-  background-image: url(../img/header__bgr.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  min-height: 100%;
 }
 
 .header__line {
@@ -67,7 +63,7 @@ body {
 }
 
 .header__logo {
-  min-width: 180px;
+  min-width: 180px; /* 180/1280 */
 }
 
 .header__logo img {
@@ -88,7 +84,7 @@ body {
   font-family: "Alegreya Sans SC";
   color: rgb(156, 146, 135);
   font-weight: 500;
-  font-size: calc(12px + 6 * ((100vw - 320px) / (1280 - 320)));
+  font-size: calc(12px + 6 * ((100vw - 320px) / (1920 - 320)));
   line-height: 27px;
   width: 100%;
   justify-content: space-between;
@@ -119,7 +115,12 @@ body {
   font-family: "Alegreya Sans SC";
   color: rgb(147, 100, 42);
   font-weight: 500;
-  font-size: calc(12px + 6 * ((100vw - 320px) / (1280 - 320)));
+  font-size: calc(12px + 6 * ((100vw - 320px) / (1920 - 320)));
+  padding: 0 7.8125%; /* 100/1280 */
+}
+
+.header__btn button {
+  padding: 0 2.5rem; /* 60/1280 */
 }
 
 .header__btn button:hover {
@@ -127,4 +128,110 @@ body {
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.page {
+  flex: 1 1 auto;
+}
+
+.main-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+}
+
+.main-section__container {
+  width: 100%;
+}
+
+.main-section__content {
+  max-width: 39vw; /* 490/1280 */
+  height: -moz-min-content;
+  height: min-content;
+  background-color: rgba(16, 15, 15, 0.7);
+  border-radius: 20px;
+  margin-top: 14%; /* 164/1280 */
+  padding: 22px 2% 46px 38px; /* 95/1280 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-section__title {
+  font-family: "Alegreya Sans SC";
+  color: rgb(203, 204, 203);
+  font-weight: 500;
+  font-size: calc(24px + 26 * ((100vw - 320px) / (1920 - 320)));
+  line-height: 75px;
+  margin-bottom: 16px;
+}
+
+.main-section__subtitle {
+  font-family: "Alegreya Sans SC";
+  color: rgb(203, 204, 203);
+  font-weight: 400;
+  font-size: calc(16px + 14 * ((100vw - 320px) / (1920 - 320)));
+  line-height: 39.15px;
+  margin-bottom: 12px;
+}
+
+.main-section__subsubtitle {
+  font-family: "Alegreya Sans SC";
+  color: rgb(203, 204, 203);
+  font-weight: 300;
+  font-size: calc(14px + 10 * ((100vw - 320px) / (1920 - 320)));
+  line-height: 36px;
+  margin-bottom: 40px;
+}
+
+.main-section__btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 255px;
+  height: 54px;
+  border-radius: 10px;
+  border: 1px double transparent;
+  background-image: linear-gradient(45deg, rgb(9, 9, 9), rgb(9, 9, 9)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  font-family: "Alegreya Sans SC";
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-size: calc(16px + 8 * ((100vw - 320px) / (1920 - 320)));
+  padding: 0 7.8125%; /* 100/1280 */
+}
+
+.main-section__btn button {
+  background-image: linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 36px;
+}
+
+.main-section__image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+
+@media (max-width: 900px) {
+  .header__menu, .header__btn {
+    display: none;
+  }
+  .main-section__content {
+    max-width: 300px;
+    padding: 8px;
+  }
+}
+@media (max-width: 600px) {
+  [class*=__container] {
+    padding: 0 1.25rem;
+  }
 }/*# sourceMappingURL=style.css.map */
