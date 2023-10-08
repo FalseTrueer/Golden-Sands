@@ -1,0 +1,156 @@
+// Подключение reset.css
+@import url(reset.css);
+
+// Покдлючение шрифтов
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;700;800;900&display=swap');
+
+@font-face {
+	font-family: 'Alegreya Sans SC';
+	font-display: swap;
+	src: url("../font/AlegreyaSansSC-Light.eot");
+	src: local("O"), url("../font/AlegreyaSansSC-Light.woff") format("woff"), 
+			url("../font/AlegreyaSansSC-Light.ttf") format("truetype"), 
+			url("../font/AlegreyaSansSC-Light.svg") format("svg");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Alegreya Sans SC';
+	font-display: swap;
+	src: url("../font/AlegreyaSansSC-Regular.eot");
+	src: local("O"), url("../font/AlegreyaSansSC-Regular.woff") format("woff"), 
+			url("../font/AlegreyaSansSC-Regular.ttf") format("truetype"), 
+			url("../font/AlegreyaSansSC-Regular.svg") format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Alegreya Sans SC';
+	font-display: swap;
+	src: url("../font/AlegreyaSansSC-Medium.eot");
+	src: local("O"), url("../font/AlegreyaSansSC-Medium.woff") format("woff"), 
+			url("../font/AlegreyaSansSC-Medium.ttf") format("truetype"), 
+			url("../font/AlegreyaSansSC-Medium.svg") format("svg");
+	font-weight: 500;
+	font-style: normal;
+}
+
+// Переменные
+
+$color_grad: linear-gradient(to right, rgba(143, 94, 37, 1), rgba(251, 244, 161, 1), rgba(143, 94, 37, 1));
+$color_gray: rgba(156, 146, 135, 1);
+$color_brown: rgba(147, 100, 42, 1);
+$color_wgray:rgba(203, 204, 203, 1);
+$color_white: rgba(255, 255, 255, 1);
+
+// Функции
+
+@mixin fonts($font-family, $font-color, $size-norm , $size-mob, $font-weight) {
+    font-family: $font-family;
+    color: $font-color;
+    font-weight: $font-weight;
+    font-size: calc(#{$size-mob + px} + #{$size-norm - $size-mob} * ((100vw - 320px) / (1280 - 320)));
+
+}
+
+// =================================
+
+body {
+    @include fonts("Alegreya Sans SC", $color_gray, 14, 12, 300);
+}
+
+.wrapper{
+    min-height: 100%;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+
+[class*="__container"] {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 3.3125rem 0 3.3125rem;
+}
+
+// HEADER
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../img/header__bgr.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header__line{
+    background-color: rgba(9, 9, 9, 1);
+}
+.header__container {
+}
+.header__nav {
+    min-height: 3.75rem;
+    padding: 0.3125rem 0 0.3125rem 0; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+.header__logo {
+    min-width: 180px;
+}
+
+.header__logo img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.header__menu {
+    display: flex;    
+    max-width: 680px;
+    width: 100%;
+    margin: 0 5px;
+}
+
+.header__menu ul {
+    display: flex;
+    @include fonts("Alegreya Sans SC", $color_gray, 18, 12, 500);
+    line-height: 27px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.header__menu ul li a:hover{
+    color: $color_brown;
+}
+
+.header__menu ul li a:active{
+    background-image: $color_grad;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header__btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 120px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px double transparent;
+    background-image: linear-gradient(45deg, rgba(9, 9, 9, 1), rgba(9, 9, 9, 1)), $color_grad;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    @include fonts("Alegreya Sans SC", $color_brown, 18, 12, 500);
+}
+
+.header__btn button:hover{
+    background-image: $color_grad;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
