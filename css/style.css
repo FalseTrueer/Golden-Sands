@@ -32,10 +32,15 @@ body {
 }
 
 .wrapper {
-  min-height: 100%;
+  width: 100%;
   overflow: clip;
   display: flex;
   flex-direction: column;
+  background-image: url(../img/allX2.png);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
 }
 
 [class*=__container] {
@@ -85,7 +90,7 @@ body {
   font-size: clamp(14px, 1.4vw, 27px);
   font-weight: 500;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .header__menu ul li a:hover {
@@ -112,7 +117,7 @@ body {
   color: rgb(147, 100, 42);
   font-weight: 500;
   font-size: clamp(14px, 1.4vw, 27px);
-  margin-left: clamp(40px, 6vw, 125px);
+  margin-left: clamp(40px, 6vw, 200px);
 }
 
 .header__btn button {
@@ -189,25 +194,14 @@ body {
     margin: clamp(15px, 1vw, 80px) 0;
   }
   .header__btn {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    font-size: clamp(16px, 4vw, 24px);
-    width: clamp(120px, 25vw, 180px);
-    height: clamp(25px, 7vw, 48px);
-    margin-bottom: 20px;
+    display: none;
   }
   .header__btn button {
     padding: 0 clamp(25px, 6vw, 38px); /* 60/1280 */
   }
 }
-.page {
-  flex: 1 1 auto;
-}
-
 .main-section {
-  position: relative;
-  min-height: 100vh;
+  width: 100%;
   display: flex;
 }
 
@@ -269,13 +263,130 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.main-section__image img {
+.car-section {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: -1;
+}
+
+.car-section__content {
+  margin-top: clamp(10px, 27vw, 600px);
+}
+
+.car-section__title {
+  font-size: clamp(19px, 2.6vw, 50px);
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+}
+
+.car-section__settings {
+  font-size: clamp(12px, 1.4vw, 30px);
+  font-weight: 500;
+  color: rgb(147, 100, 42);
+  display: flex;
+  -moz-column-gap: clamp(25px, 2vw, 40px);
+       column-gap: clamp(25px, 2vw, 40px);
+  margin-top: clamp(24px, 3.6vw, 70px);
+}
+
+::-webkit-input-placeholder {
+  color: rgb(147, 100, 42);
+}
+
+::-moz-placeholder {
+  color: rgb(147, 100, 42);
+}
+
+:-ms-input-placeholder {
+  color: rgb(147, 100, 42);
+}
+
+.car-section__search > form {
+  width: clamp(230px, 28.6vw, 550px);
+  height: clamp(25px, 3.1vw, 60px);
+  border-radius: 5px;
+  border: 1.5px double transparent;
+  background-image: linear-gradient(45deg, rgb(19, 19, 19), rgb(19, 19, 19)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: flex;
+  align-items: center;
+}
+
+.car-section__search > form > button {
+  margin: 0 clamp(6px, 0.7vw, 15px);
+  width: clamp(12px, 1.4vw, 27px);
+  height: clamp(12px, 1.4vw, 27px);
+}
+
+.car-section__class > form {
+  width: clamp(70px, 7vw, 150px);
+  height: clamp(25px, 3.1vw, 60px);
+  border-radius: 5px;
+  border: 1.5px double transparent;
+  background-image: linear-gradient(45deg, rgb(19, 19, 19), rgb(19, 19, 19)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-section__class > form > select {
+  background-color: rgb(19, 19, 19);
+}
+
+.car-section__passengers > form {
+  width: clamp(200px, 20vw, 400px);
+  height: clamp(25px, 3.1vw, 60px);
+  border-radius: 5px;
+  border: 1.5px double transparent;
+  background-image: linear-gradient(45deg, rgb(19, 19, 19), rgb(19, 19, 19)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-section__passengers > form > select {
+  background-color: rgb(19, 19, 19);
+}
+
+.car-section__horsepower > form {
+  width: clamp(120px, 14vw, 280px);
+  height: clamp(25px, 3.1vw, 60px);
+  border-radius: 5px;
+  border: 1.5px double transparent;
+  background-image: linear-gradient(45deg, rgb(19, 19, 19), rgb(19, 19, 19)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-section__horsepower > form > select {
+  background-color: rgb(19, 19, 19);
+}
+
+.car-section__sortprice > form {
+  width: clamp(80px, 13vw, 250px);
+  height: clamp(25px, 3.1vw, 60px);
+  border-radius: 5px;
+  border: 1.5px double transparent;
+  background-image: linear-gradient(45deg, rgb(19, 19, 19), rgb(19, 19, 19)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-section__sortprice > form > select {
+  background-color: rgb(19, 19, 19);
+}
+
+.a1 {
+  width: 100vw;
+  height: 1000px;
+  background-color: aqua;
 }/*# sourceMappingURL=style.css.map */
