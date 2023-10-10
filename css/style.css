@@ -27,8 +27,8 @@
 body {
   font-family: "Alegreya Sans SC";
   color: rgb(156, 146, 135);
+  font-size: clamp(12px, 1rem + 5vw, 24px);
   font-weight: 300;
-  font-size: calc(12px + 12 * ((100vw - 320px) / (1920 - 320)));
 }
 
 .wrapper {
@@ -39,22 +39,20 @@ body {
 }
 
 [class*=__container] {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 3.3125rem;
+  padding: 0 5vw;
 }
 
 .header {
-  width: 100%;
-  min-height: 100%;
-}
-
-.header__line {
   background-color: rgb(9, 9, 9);
+  width: 100%;
+  z-index: 1;
+  position: fixed;
 }
 
 .header__nav {
-  min-height: 3.75rem;
+  height: clamp(45px, 5vw, 90px);
   padding: 0.3125rem 0 0.3125rem 0;
   display: flex;
   align-items: center;
@@ -63,29 +61,29 @@ body {
 }
 
 .header__logo {
-  min-width: 180px; /* 180/1280 */
+  width: clamp(120px, 14vw, 270px);
+  height: clamp(25px, 3vw, 60px);
 }
 
 .header__logo img {
-  width: 100%;
+  min-width: clamp(120px, 14vw, 270px);
+  min-height: clamp(25px, 3vw, 60px);
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .header__menu {
   display: flex;
-  max-width: 680px;
   width: 100%;
-  margin: 0 5px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: clamp(10px, 8vw, 180px);
 }
 
 .header__menu ul {
   display: flex;
-  font-family: "Alegreya Sans SC";
-  color: rgb(156, 146, 135);
+  font-size: clamp(14px, 1.4vw, 27px);
   font-weight: 500;
-  font-size: calc(12px + 6 * ((100vw - 320px) / (1920 - 320)));
-  line-height: 27px;
   width: 100%;
   justify-content: space-between;
 }
@@ -104,23 +102,21 @@ body {
 .header__btn {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 120px;
-  height: 32px;
-  border-radius: 3px;
+  width: clamp(120px, 9vw, 180px);
+  height: clamp(25px, 2.5vw, 48px);
+  border-radius: 5px;
   border: 1px double transparent;
   background-image: linear-gradient(45deg, rgb(9, 9, 9), rgb(9, 9, 9)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  font-family: "Alegreya Sans SC";
   color: rgb(147, 100, 42);
   font-weight: 500;
-  font-size: calc(12px + 6 * ((100vw - 320px) / (1920 - 320)));
-  padding: 0 7.8125%; /* 100/1280 */
+  font-size: clamp(14px, 1.4vw, 27px);
+  margin-left: clamp(40px, 6vw, 125px);
 }
 
 .header__btn button {
-  padding: 0 2.5rem; /* 60/1280 */
+  padding: 0 clamp(20px, 1.5vw, 35px); /* 60/1280 */
 }
 
 .header__btn button:hover {
@@ -130,6 +126,81 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.header__burger {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .header__burger {
+    width: 16px;
+    height: 16px;
+    display: block;
+    position: relative;
+  }
+  .header__burger span, .header__burger::before, .header__burger::after {
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: rgb(147, 100, 42);
+  }
+  .header__burger span {
+    top: 50%;
+  }
+  .header__burger:after, .header__burger:before {
+    content: "";
+  }
+  .header__burger:after {
+    bottom: 2px;
+  }
+  .header__burger:before {
+    top: 4px;
+  }
+  .header__menu {
+    display: flex;
+    position: fixed;
+    top: -100%;
+  }
+  .header__menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    height: -moz-min-content;
+    height: min-content;
+    background-color: rgba(9, 9, 9, 0.8);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 0.5s ease 0s;
+    z-index: -1;
+  }
+  .header__menu.active > ul {
+    margin-top: clamp(44px, 5vw, 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__menu.active > ul > li {
+    font-size: clamp(16px, 4vw, 24px);
+    margin: clamp(15px, 1vw, 80px) 0;
+  }
+  .header__btn {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-size: clamp(16px, 4vw, 24px);
+    width: clamp(120px, 25vw, 180px);
+    height: clamp(25px, 7vw, 48px);
+    margin-bottom: 20px;
+  }
+  .header__btn button {
+    padding: 0 clamp(25px, 6vw, 38px); /* 60/1280 */
+  }
+}
 .page {
   flex: 1 1 auto;
 }
@@ -140,65 +211,54 @@ body {
   display: flex;
 }
 
-.main-section__container {
-  width: 100%;
-}
-
 .main-section__content {
-  max-width: 39vw; /* 490/1280 */
-  height: -moz-min-content;
-  height: min-content;
+  width: clamp(285px, 40vw, 800px); /* 490/1280 */
+  height: clamp(218px, 26vw, 600px);
   background-color: rgba(16, 15, 15, 0.7);
   border-radius: 20px;
-  margin-top: 14%; /* 164/1280 */
-  padding: 22px 2% 46px 38px; /* 95/1280 */
+  margin-top: clamp(160px, 13vw, 250px); /* 164/1280 */
+  padding: clamp(14px, 2vw, 33px) 10px clamp(24px, 3.1vw, 60px) clamp(24px, 3.1vw, 60px); /* 95/1280 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.main-section__title {
-  font-family: "Alegreya Sans SC";
+.main-section__text {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
   color: rgb(203, 204, 203);
+}
+
+.main-section__title {
+  font-size: clamp(32px, 3.9vw, 100px);
   font-weight: 500;
-  font-size: calc(24px + 26 * ((100vw - 320px) / (1920 - 320)));
-  line-height: 75px;
-  margin-bottom: 16px;
 }
 
 .main-section__subtitle {
-  font-family: "Alegreya Sans SC";
-  color: rgb(203, 204, 203);
+  font-size: clamp(19px, 2.3vw, 70px);
   font-weight: 400;
-  font-size: calc(16px + 14 * ((100vw - 320px) / (1920 - 320)));
-  line-height: 39.15px;
-  margin-bottom: 12px;
 }
 
 .main-section__subsubtitle {
-  font-family: "Alegreya Sans SC";
-  color: rgb(203, 204, 203);
+  font-size: clamp(15px, 1.8vw, 55px);
   font-weight: 300;
-  font-size: calc(14px + 10 * ((100vw - 320px) / (1920 - 320)));
-  line-height: 36px;
-  margin-bottom: 40px;
 }
 
 .main-section__btn {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 255px;
-  height: 54px;
+  width: clamp(200px, 20vw, 500px);
+  height: clamp(40px, 4.1vw, 75px);
   border-radius: 10px;
   border: 1px double transparent;
   background-image: linear-gradient(45deg, rgb(9, 9, 9), rgb(9, 9, 9)), linear-gradient(to right, rgb(143, 94, 37), rgb(251, 244, 161), rgb(143, 94, 37));
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  font-family: "Alegreya Sans SC";
   color: rgb(255, 255, 255);
+  font-size: clamp(20px, 1.8vw, 55px);
   font-weight: 400;
-  font-size: calc(16px + 8 * ((100vw - 320px) / (1920 - 320)));
   padding: 0 7.8125%; /* 100/1280 */
 }
 
@@ -207,7 +267,6 @@ body {
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 36px;
 }
 
 .main-section__image img {
@@ -219,19 +278,4 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   z-index: -1;
-}
-
-@media (max-width: 900px) {
-  .header__menu, .header__btn {
-    display: none;
-  }
-  .main-section__content {
-    max-width: 300px;
-    padding: 8px;
-  }
-}
-@media (max-width: 600px) {
-  [class*=__container] {
-    padding: 0 1.25rem;
-  }
 }/*# sourceMappingURL=style.css.map */
