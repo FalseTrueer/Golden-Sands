@@ -62,6 +62,7 @@ body {
     overflow: clip;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background-image: url(../img/zallX2.png);
     background-position: top;
     background-size: cover;
@@ -733,10 +734,114 @@ body {
 }
 
 
-.a1{
-    width: 100vw;   
-    height: 1000px;
+.contacts-section {
 }
+.contacts-section__container {
+    padding: 0 clamp(4vw,12.2vw,235px);
+}
+.contacts-section__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(58px,9.2vw,180px);
+}
+.contacts-section__title {
+    font-size: clamp(20px,3.9vw,80px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+.contacts-section__box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+.contacts-section__left {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contacts-section__info {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(14px,2.3vw,50px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+.contacts-section__messengers {
+    font-size: clamp(14px,1.6vw,35px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+.contacts-section__messenger > a > img{
+    width: clamp(20px,3.1vw,60px);
+    margin-right: 15px;
+}
+
+.contacts-section__right {
+    background-color: rgba(9, 9, 9, 0.7);
+    border-radius: 15px;
+    width: clamp(280px,37vw,750px);
+    height: clamp(180px,25vw,500px);
+}
+
+.contacts-section__right > form{
+    margin-top: clamp(12px,3.5vw,70px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(16px,1.5vw,32px);
+    font-weight: 300;
+    color: $color_brown;
+    
+}
+
+.contacts-section__right > form > input{
+    border-bottom: 1px solid $color_brown;
+    padding-left: 5px;
+    width: clamp(280px,27vw,520px);
+    margin-bottom: clamp(20px,3.1vw,60px);
+}
+
+.contacts-section__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(110px, 14vw,270px);
+    height: clamp(25px, 3.1vw,60px);
+    border-radius: 5px;
+    border: 1px double transparent;
+    background-image: linear-gradient(45deg, rgba(9, 9, 9, 1), rgba(9, 9, 9, 1)), $color_grad;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: $color_brown;
+    font-weight: 500;
+    font-size: clamp(14px,1.4vw,27px);
+}   
+
+.contacts-section__btn button{
+    padding: clamp(4px,6.2vw,12px) clamp(22px,3.8vw,74px);
+}
+
+.contacts-section__btn button:hover{
+    background-image: $color_grad;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media(max-width:930px){
@@ -765,4 +870,30 @@ body {
     .review-section__right{
         height: 260px;
     }
+
+    .contacts-section__box {
+        flex-direction: column-reverse;
+    }
+
+    .contacts-section__left{
+        flex-direction: row;
+        column-gap: 40px;
+    }
+
+    .contacts-section__right{
+        margin-bottom: 50px;
+    }
+
+    .contacts-section__info > a{
+        margin-bottom: 10px;
+    }
+
+    .contacts-section__messengers{
+        white-space: nowrap;
+    }
+
+    .contacts-section__messengers > h2{
+        margin-bottom: 5px;
+    }
+
 }
